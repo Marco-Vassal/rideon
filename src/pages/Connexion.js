@@ -17,7 +17,12 @@ const Connexion = () => {
     try {
       const response = await axios.post(
         'http://127.0.0.1:8000/api/auth',
-        JSON.stringify(formData));
+        JSON.stringify(formData),
+        console.log(JSON.stringify(formData)),
+        {
+          headers: { 'Content-Type':  "application/json" }
+        }
+        );
       console.log('Réponse du serveur:', response.data);
       // Ajoutez ici la logique pour gérer la réponse du serveur (par exemple, rediriger l'utilisateur après la connexion réussie)
     } catch (error) {

@@ -89,9 +89,7 @@ function Creation() {
         'http://127.0.0.1:8000/api/users',
         formDataJSON,
         {
-          headers: {
-            'Content-Type': 'application/json', // Ajoutez cette ligne pour spécifier le type de contenu JSON
-          },
+          headers: { 'Content-Type':  "application/json" }
         }
       );
 
