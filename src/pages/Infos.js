@@ -111,7 +111,7 @@ function Infos() {
     
             <label className='photo' onDrop={handleDrop}
                     onDragOver={(e) => e.preventDefault()}>
-              Change ta photo +
+              Change ta photo
               <input type="file" name="photo" accept="image/*" onChange={handleFileSelect}/>
             </label>
                 <p className='validFile'>{fileName}</p>

@@ -144,7 +144,6 @@ const AvailabilityCalendar = () => {
                                 <div
                                     key={index}
                                     onClick={() => handleDayClick(index)}
-                                    className={`small-div ${selectedDay === index ? 'selected' : ''}`}
                                 >
                                     {/* Contenu de la petite div */}
                                     <img src="/images/IMG_2089_low_qual.png" alt="" />

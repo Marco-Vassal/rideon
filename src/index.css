@@ -87,18 +87,48 @@ body {
 }
 
 .home section {
-  margin-top: 15%;
+  width: 70%;
   display: flex;
+  margin: auto;
   align-items: center;
   justify-content: space-around;
+  flex-wrap: wrap;
+}
+.home section > img, .home section h4 + img {
+  min-width: 280px;
+  max-width: 400px;
+  width: 40%;
+  border-radius: 32px;
+  box-shadow: 1px 4px 4px grey;
+}
+.home section:nth-child(3) {
+  flex-wrap: wrap-reverse;
+}
+.home section:nth-child(2), .home section:nth-child(3), .home section:nth-child(4) {
+  border: 1px solid white;
+  border-radius: 32px;
+  padding: 16px;
+  margin: 16px auto;
 }
 .home section .description {
-  width: 30%;
+  width: 80%;
   font-size: 2em;
   font-weight: 600;
+  text-align: center;
   color: white;
-  text-align: justify;
   text-shadow: 1px 1px 4px black;
+  margin-top: 32px;
+}
+.home section .description + h4 {
+  width: 80%;
+}
+.home section h4 {
+  font-size: x-large;
+  text-align: center;
+  text-shadow: 1px 1px 4px black;
+  width: 40%;
+  color: white;
+  margin: 32px;
 }
 .home section .card {
   background-color: white;
@@ -309,6 +339,7 @@ body {
 }
 .calendar section .day > div {
   overflow-y: auto;
+  overflow-x: hidden;
   height: 90%;
 }
 .calendar section .day > div > div {
@@ -590,47 +621,56 @@ body {
   top: 0;
 }
 
-.creation, .infos {
+.connexion, .creation,
+.infos {
   margin: 32px 0;
 }
-.creation h1, .infos h1 {
+.connexion h1, .creation h1,
+.infos h1 {
   color: black;
   text-shadow: 1px 1px 2px rgb(187, 187, 187);
   text-align: center;
   margin: 16px 0;
   padding: 0 16px;
 }
-.creation .card, .infos .card {
+.connexion .card, .creation .card,
+.infos .card {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
   margin: 0 auto;
-  width: 400px;
+  max-width: 400px;
   background-color: white;
   border-radius: 16px;
   box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);
   padding: 16px 0;
 }
-.creation .card label, .infos .card label {
+.connexion .card label, .creation .card label,
+.infos .card label {
   display: flex;
   flex-direction: column;
   width: 70%;
   margin: 12px 0;
 }
-.creation .card label input,
-.creation .card label select, .infos .card label input,
+.connexion .card label input,
+.connexion .card label select, .creation .card label input,
+.creation .card label select,
+.infos .card label input,
 .infos .card label select {
   border: 0;
   border-bottom: 1px solid black;
 }
-.creation .card label select option:nth-child(1), .infos .card label select option:nth-child(1) {
+.connexion .card label select option:nth-child(1), .creation .card label select option:nth-child(1),
+.infos .card label select option:nth-child(1) {
   color: rgba(0, 0, 0, 0.343);
 }
-.creation .card label input[type=file], .infos .card label input[type=file] {
+.connexion .card label input[type=file], .creation .card label input[type=file],
+.infos .card label input[type=file] {
   display: none;
 }
-.creation .card .photo, .infos .card .photo {
+.connexion .card .photo, .creation .card .photo,
+.infos .card .photo {
   border: 1px dashed black;
   padding: 8px;
   border-radius: 8px;
@@ -638,11 +678,13 @@ body {
   transition: 0.3s;
   margin-bottom: 0;
 }
-.creation .card .photo:hover, .infos .card .photo:hover {
+.connexion .card .photo:hover, .creation .card .photo:hover,
+.infos .card .photo:hover {
   scale: 1.05;
   transition: 0.3s;
 }
-.creation .card button, .infos .card button {
+.connexion .card button, .creation .card button,
+.infos .card button {
   text-decoration: none;
   background-color: rgb(30, 136, 224);
   padding: 8px 16px;
@@ -653,13 +695,15 @@ body {
   transition: 0.3s;
   font-size: 1.2em;
 }
-.creation .card button:hover, .infos .card button:hover {
+.connexion .card button:hover, .creation .card button:hover,
+.infos .card button:hover {
   background-color: white;
   color: rgb(30, 136, 224);
   scale: 1.05;
   transition: 0.3s;
 }
-.creation .card .validFile, .infos .card .validFile {
+.connexion .card .validFile, .creation .card .validFile,
+.infos .card .validFile {
   margin: 0;
   font-size: 0.8em;
   width: 60%;
@@ -670,6 +714,182 @@ body {
   text-align: center;
 }
 
+.myFriends {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.myFriends .amis {
+  background-color: white;
+  text-align: center;
+  max-width: 350px;
+  width: 30%;
+  min-width: 300px;
+  height: 600px;
+  border: 1px solid black;
+  border-radius: 16px;
+  margin: 16px;
+}
+.myFriends .amis > h2 {
+  font-weight: 600;
+  border-bottom: 1px solid black;
+  margin: 0;
+  padding: 16px 0;
+}
+.myFriends .amis > div {
+  display: flex;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 88%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.myFriends .amis > div > div {
+  position: relative;
+  border-radius: 8px;
+  display: flex;
+  margin: 8px 24px;
+  height: 64px;
+  width: 250px;
+  box-shadow: 1px 1px 4px grey;
+  align-items: center;
+}
+.myFriends .amis > div > div > img {
+  height: 50px;
+  min-width: 50px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  margin: 0 24px 0 8px;
+}
+.myFriends .amis > div > div div h2,
+.myFriends .amis > div > div div p {
+  margin: 0;
+}
+.myFriends .amis > div > div a {
+  display: flex;
+}
+.myFriends .amis > div > div a img {
+  width: 45px;
+  height: 45px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+  margin: 0 24px 0 8px;
+}
+.myFriends .amis > div > div div:last-child {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: green;
+  right: 10px;
+}
+.myFriends .centered-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.475);
+}
+.myFriends .centered-card > div {
+  position: relative;
+  display: block;
+  background-color: white;
+  box-shadow: 1px 4px 4px grey;
+  border-radius: 8px;
+  padding: 16px;
+  width: 220px;
+  text-align: center;
+}
+.myFriends .centered-card > div .croix {
+  position: absolute;
+  top: -24px;
+  right: -24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.myFriends .centered-card > div .croix .circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgb(204, 21, 21);
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.myFriends .centered-card > div .croix .circle span {
+  display: block;
+  width: 15px;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+}
+.myFriends .centered-card > div .croix .circle span:nth-child(1) {
+  transform: rotate(45deg);
+}
+.myFriends .centered-card > div .croix .circle span:nth-child(2) {
+  transform: rotate(-45deg);
+}
+.myFriends .centered-card > div h3 {
+  font-weight: 500;
+  margin: 0;
+}
+.myFriends .centered-card > div h2 {
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+.myFriends .centered-card > div p {
+  margin: 0;
+  color: black;
+}
+.myFriends .centered-card > div img {
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-top: 16px;
+  box-shadow: 1px 2px 4px grey;
+}
+.myFriends .centered-card > div .ride {
+  position: absolute;
+  right: 16px;
+  font-size: 0.8em;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  color: rgb(122, 194, 13);
+}
+.myFriends .centered-card > div .follow {
+  position: relative;
+  z-index: 10;
+  display: inline-block;
+  text-decoration: none;
+  background-color: rgb(30, 136, 224);
+  padding: 8px 16px;
+  color: white;
+  border-radius: 8px;
+  margin: 8px 16px;
+  border: 1px solid rgb(30, 136, 224);
+  transition: 0.3s;
+}
+.myFriends .centered-card > div .follow:hover {
+  background-color: white;
+  color: rgb(30, 136, 224);
+  scale: 1.05;
+  transition: 0.3s;
+}
+
 @media screen and (max-width: 400px) {
   .navbar .slogan {
     display: none;
@@ -677,5 +897,31 @@ body {
   .navbar ul {
     width: 95%;
     padding: 8px 0;
+  }
+  .home section {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 8px;
+  }
+  .home section:nth-child(2), .home section:nth-child(3), .home section:nth-child(4) {
+    border: 1px solid white;
+    border-radius: 32px;
+    padding: 16px;
+    margin: 16px;
+  }
+  .home section:nth-child(2) h4, .home section:nth-child(3) h4, .home section:nth-child(4) h4 {
+    width: 90%;
+    margin: 0 0 16px 0;
+  }
+  .home section .description {
+    width: 90%;
+  }
+  .home section .description + h4 {
+    width: 90%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .creation .card, .infos .card {
+    margin: 0 16px;
   }
 }/*# sourceMappingURL=index.css.map */

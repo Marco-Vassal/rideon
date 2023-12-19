@@ -11,7 +11,7 @@ function Navbar() {
         </h1>
         <p>Rider à plusieurs c'est une ride meilleure !</p>
       </div>
-      <a href="/creation">Connexion</a>
+      <a href="/connexion">Connexion</a>
       </div>
       <ul>
         <li><a href="/find">Calendrier</a><span></span></li>
