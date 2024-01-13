@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { setToken } from 'react-auth-kit';
+
 
 const Connexion = () => {
   const [formData, setFormData] = useState({
@@ -20,9 +22,11 @@ const Connexion = () => {
         JSON.stringify(formData),
         console.log(JSON.stringify(formData)),
         {
-          headers: { 'Content-Type':  "application/json" }
+          headers: { 'Content-Type': "application/json" }
         }
-        );
+      );
+      const { token } = response.data;
+      setToken('Bearer Token', token);
       console.log('Réponse du serveur:', response.data);
       // Ajoutez ici la logique pour gérer la réponse du serveur (par exemple, rediriger l'utilisateur après la connexion réussie)
     } catch (error) {
