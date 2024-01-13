@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const Connexion = () => {
   const [formData, setFormData] = useState({
-    email: '',
+    username: '',
     password: '',
   });
 
@@ -14,20 +14,22 @@ const Connexion = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post(
-        'http://127.0.0.1:8000/api/auth',
-        JSON.stringify(formData),
-        console.log(JSON.stringify(formData)),
-        {
-          headers: { 'Content-Type':  "application/json" }
-        }
-        );
-      console.log('Réponse du serveur:', response.data);
-      // Ajoutez ici la logique pour gérer la réponse du serveur (par exemple, rediriger l'utilisateur après la connexion réussie)
-    } catch (error) {
-      console.error('Erreur lors de la connexion:', error);
-      // Ajoutez ici la logique pour gérer les erreurs de connexion
+
+    const response = await fetch(
+      'https://localhost:8000/api/login',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      },
+    );
+
+    const data = await response.json();
+
+    if (response.ok) {
+      console.log(data);
+    } else {
+      console.log(data);
     }
   };
 
@@ -37,7 +39,7 @@ const Connexion = () => {
         <h1>Connexion</h1>
         <label>
           Pseudo ou Email:
-          <input type="text" name="email" value={formData.email} onChange={handleInputChange} />
+          <input type="text" name="username" value={formData.username} onChange={handleInputChange} />
         </label>
         <label>
           Mot de passe:
