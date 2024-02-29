@@ -5,7 +5,7 @@ import { setToken } from 'react-auth-kit';
 
 const Connexion = () => {
   const [formData, setFormData] = useState({
-    email: '',
+    username: '',
     password: '',
   });
 
@@ -41,7 +41,7 @@ const Connexion = () => {
         <h1>Connexion</h1>
         <label>
           Pseudo ou Email:
-          <input type="text" name="email" value={formData.email} onChange={handleInputChange} />
+          <input type="text" name="username" value={formData.username} onChange={handleInputChange} />
         </label>
         <label>
           Mot de passe:
